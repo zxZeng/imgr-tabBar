@@ -294,6 +294,26 @@
             title: '特惠',
             iconPath: 'icon/Ico_Sale_N.png',
             selectedIconPath: "icon/Ico_Sale_S.png"
+          },
+          {
+            title: '双11',
+            iconPath: 'icon/Ico_1111_N.png',
+            selectedIconPath: "icon/Ico_1111_S.png"
+          },
+          {
+            title: '双12',
+            iconPath: 'icon/Ico_1212_N.png',
+            selectedIconPath: "icon/Ico_1212_S.png"
+          },
+          {
+            title: '秒杀',
+            iconPath: 'icon/Ico_SecKill_N.png',
+            selectedIconPath: "icon/Ico_SecKill_S.png"
+          },
+          {
+            title: '大促',
+            iconPath: 'icon/Ico_Special_N.png',
+            selectedIconPath: "icon/Ico_Special_S.png"
           }
         ],
         tabBar: {
@@ -376,6 +396,33 @@
       })
     },
     mounted() {
+      var shopId= parseInt($('#shopId').val());
+      if(shopId == 2220524) {
+        var specialIconList =[
+          {
+            title: '首页',
+            iconPath: 'icon/Ico_Home_Customl01_N.png',
+            selectedIconPath: "icon/Ico_Home_Customl01_S.png"
+          },{
+            title: '分类',
+            iconPath: 'icon/Ico_Category_Customl01_N.png',
+            selectedIconPath: "icon/Ico_Category_Customl01_S.png"
+          },{
+            title: '双11大促',
+            iconPath: 'icon/Ico_1111_Customl01_N.png',
+            selectedIconPath: "icon/Ico_1111_Customl01_S.png"
+          },{
+            title: '购物车',
+            iconPath: 'icon/Ico_Cart_Customl01_N.png',
+            selectedIconPath: "icon/Ico_Cart_Customl01_S.png"
+          },{
+            title: '个人中心',
+            iconPath: 'icon/Ico_Account_Customl01_N.png',
+            selectedIconPath: "icon/Ico_Account_Customl01_S.png"
+          }
+        ];
+        this.iconList = this.iconList.concat(specialIconList);
+      }
       $("#iconWindow").kendoWindow({
         visible: false,
         modal: true,
@@ -504,6 +551,8 @@
       padding: 10px 5px;
       margin: 0 7px;
       border-radius: 5px;
+      width: 115px;
+      text-align: center;
       .icon {
         display: inline-block;
         width: 35px;
@@ -511,9 +560,12 @@
         img {
           width: 100%;
         }
+        &+.icon {
+          margin-left: 3px;
+        }
       }
       .title {
-        margin-top: 3px;
+        margin-top: 6px;
         text-align: center;
         color: #333;
         font-size: 13px;
