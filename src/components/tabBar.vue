@@ -223,7 +223,7 @@
     </div>
     <div class="iconWindow" id="iconWindow" ref="iconWindow" style="display: none;">
       <div class="content">
-        <div class="item" v-for="icon,index in iconList" :key="index" @click="chooseIcon(index)">
+        <div class="item" v-for="icon,index in iconList" :key="index" @click="chooseIcon(index)" :style="icon.clear?'clear:left;':''">
           <div class="icon">
             <img :src="require('../assets/'+icon.iconPath)" alt="">
           </div>
@@ -314,6 +314,42 @@
             title: '大促',
             iconPath: 'icon/Ico_Special_N.png',
             selectedIconPath: "icon/Ico_Special_S.png"
+          },
+          {
+            title: '首页',
+            iconPath: 'icon/Ico_Home02_N.png',
+            selectedIconPath: "icon/Ico_Home02_S.png",
+            clear:true
+          },
+          {
+            title: '分类',
+            iconPath: 'icon/Ico_Category02_N.png',
+            selectedIconPath: "icon/Ico_Category02_S.png"
+          },
+          {
+            title: '发现',
+            iconPath: 'icon/Ico_Find02_N.png',
+            selectedIconPath: "icon/Ico_Find02_S.png"
+          },
+          {
+            title: '购物车',
+            iconPath: 'icon/Ico_Cart02_N.png',
+            selectedIconPath: "icon/Ico_Cart02_S.png"
+          },
+          {
+            title: '我的',
+            iconPath: 'icon/Ico_Account02_N.png',
+            selectedIconPath: "icon/Ico_Account02_S.png"
+          },
+          {
+            title: '店铺活动',
+            iconPath: 'icon/Ico_Activity02_N.png',
+            selectedIconPath: "icon/Ico_Activity02_S.png"
+          },
+          {
+            title: '推荐',
+            iconPath: 'icon/Ico_Recommend02_N.png',
+            selectedIconPath: "icon/Ico_Recommend02_S.png"
           }
         ],
         tabBar: {
@@ -424,6 +460,7 @@
         this.iconList = this.iconList.concat(specialIconList);
       }
       $("#iconWindow").kendoWindow({
+        title:'图标选择',
         visible: false,
         modal: true,
         resizable: false,
@@ -543,11 +580,12 @@
   }
 
   .iconWindow {
-    width: 692px;
+    width: 950px;
     padding: 20px;
+    max-height: 360px;
     .item {
       cursor: pointer;
-      display: inline-block;
+      float: left;
       padding: 10px 5px;
       margin: 0 7px;
       border-radius: 5px;
@@ -565,7 +603,7 @@
         }
       }
       .title {
-        margin-top: 6px;
+        margin-top: 9px;
         text-align: center;
         color: #333;
         font-size: 13px;
